@@ -1,4 +1,4 @@
-// Generated from: ecommercelogin.feature
+// Generated from: tests/features/ecommercelogin.feature
 import { test } from "playwright-bdd";
 
 test.describe('Verify E-commerce Login Functionality', () => {
@@ -40,7 +40,7 @@ test.describe('Verify E-commerce Login Functionality', () => {
 
 test.use({
   $test: [({}, use) => use(test), { scope: 'test', box: true }],
-  $uri: [({}, use) => use('ecommercelogin.feature'), { scope: 'test', box: true }],
+  $uri: [({}, use) => use('tests/features/ecommercelogin.feature'), { scope: 'test', box: true }],
   $bddFileData: [({}, use) => use(bddFileData), { scope: "test", box: true }],
 });
 

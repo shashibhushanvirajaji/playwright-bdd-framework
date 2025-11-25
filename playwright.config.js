@@ -3,8 +3,8 @@ import { defineConfig, devices } from '@playwright/test';
 import { defineBddConfig } from 'playwright-bdd';
 
 const testDir = defineBddConfig({
-  paths:['ecommercelogin.feature'],
-  require: ['ecommercestepdefinitions.js'],
+  paths:['tests/features/ecommercelogin.feature'],
+  require: ['tests/steps/ecommercestepdefinitions.js'],
 });
 
 /**
