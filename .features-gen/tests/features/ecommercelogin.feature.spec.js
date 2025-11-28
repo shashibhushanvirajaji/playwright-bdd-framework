@@ -1,35 +1,35 @@
 // Generated from: tests/features/ecommercelogin.feature
-import { test } from "playwright-bdd";
+import { test } from "../../../tests/fixtures/fixture.js";
 
 test.describe('Verify E-commerce Login Functionality', () => {
 
-  test('Successful Login with Valid Credentials', async ({ Given, When, Then, And, page }) => { 
-    await Given('the user is on the e-commerce login page \'https://ecommerce-playground.lambdatest.io/\'', null, { page }); 
-    await When('the user clicks on My Account link', null, { page }); 
-    await And('the user enters a valid email address "shashi.virajaji@gmail.com"', null, { page }); 
-    await And('the user enters a valid password "Sbhushan@123"', null, { page }); 
-    await And('the user clicks the login button', null, { page }); 
-    await Then('the user should be redirected to the homepage', null, { page }); 
+  test('Successful Login with Valid Credentials', async ({ Given, When, Then, And, ecomLoginPage }) => { 
+    await Given('the user is on the e-commerce login page \'https://ecommerce-playground.lambdatest.io/\'', null, { ecomLoginPage }); 
+    await When('the user clicks on My Account link', null, { ecomLoginPage }); 
+    await And('the user enters a valid email address "shashi.virajaji@gmail.com"', null, { ecomLoginPage }); 
+    await And('the user enters a valid password "Sbhushan@123"', null, { ecomLoginPage }); 
+    await And('the user clicks the login button', null, { ecomLoginPage }); 
+    await Then('the user should be redirected to the homepage', null, { ecomLoginPage }); 
   });
 
   test.describe('UnSuccessful Login with In-Valid Credentials', () => {
 
-    test('Example #1', async ({ Given, When, Then, And, page }) => { 
-      await Given('the user is on the e-commerce login page \'https://ecommerce-playground.lambdatest.io/\'', null, { page }); 
-      await When('the user clicks on My Account link', null, { page }); 
-      await And('the user enters a valid email address "abc@gmail.com"', null, { page }); 
-      await And('the user enters a valid password "wrongpassword"', null, { page }); 
-      await And('the user clicks the login button', null, { page }); 
-      await Then('the user should not be redirected to the homepage', null, { page }); 
+    test('Example #1', async ({ Given, When, Then, And, ecomLoginPage }) => { 
+      await Given('the user is on the e-commerce login page \'https://ecommerce-playground.lambdatest.io/\'', null, { ecomLoginPage }); 
+      await When('the user clicks on My Account link', null, { ecomLoginPage }); 
+      await And('the user enters a valid email address "abc@gmail.com"', null, { ecomLoginPage }); 
+      await And('the user enters a valid password "wrongpassword"', null, { ecomLoginPage }); 
+      await And('the user clicks the login button', null, { ecomLoginPage }); 
+      await Then('the user should not be redirected to the homepage', null, { ecomLoginPage }); 
     });
 
-    test('Example #2', async ({ Given, When, Then, And, page }) => { 
-      await Given('the user is on the e-commerce login page \'https://ecommerce-playground.lambdatest.io/\'', null, { page }); 
-      await When('the user clicks on My Account link', null, { page }); 
-      await And('the user enters a valid email address "ruthvika@yahoo.com"', null, { page }); 
-      await And('the user enters a valid password "bnreddy@12"', null, { page }); 
-      await And('the user clicks the login button', null, { page }); 
-      await Then('the user should not be redirected to the homepage', null, { page }); 
+    test('Example #2', async ({ Given, When, Then, And, ecomLoginPage }) => { 
+      await Given('the user is on the e-commerce login page \'https://ecommerce-playground.lambdatest.io/\'', null, { ecomLoginPage }); 
+      await When('the user clicks on My Account link', null, { ecomLoginPage }); 
+      await And('the user enters a valid email address "ruthvika@yahoo.com"', null, { ecomLoginPage }); 
+      await And('the user enters a valid password "bnreddy@12"', null, { ecomLoginPage }); 
+      await And('the user clicks the login button', null, { ecomLoginPage }); 
+      await Then('the user should not be redirected to the homepage', null, { ecomLoginPage }); 
     });
 
   });

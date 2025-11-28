@@ -3,8 +3,13 @@ import { defineConfig, devices } from '@playwright/test';
 import { defineBddConfig } from 'playwright-bdd';
 
 const testDir = defineBddConfig({
-  paths:['tests/features/ecommercelogin.feature'],
-  require: ['tests/steps/ecommercestepdefinitions.js'],
+  importTestFrom: 'tests/fixtures/fixture.js',
+  paths:['tests/features/**.feature'],
+  //require: ['tests/steps/ecommercestepdefinitions.js'],
+  steps :['tests/steps/*.js'],
+  disableWarnings : {
+    importTestFrom : true,
+  }
 });
 
 /**

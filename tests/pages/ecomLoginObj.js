@@ -1,11 +1,12 @@
+import { expect } from "playwright/test";
 
-class EcomLoginPage {
+export class EcomLoginPage {
     constructor(page) {
         this.page = page;
-        this.myaccountLink = page.locator('#myAccount');
-        this.emailInput = page.locator('#email');
-        this.passwordInput = page.locator('#password');
-        this.loginButton = page.locator('#loginBtn');
+        this.myaccountLink = page.getByRole('button', { name: 'My account' })
+        this.emailInput = page.getByLabel('E-Mail Address')
+        this.passwordInput = page.getByLabel('Password')
+        this.loginButton = page.locator('input:has-text("Login")')
        
     }
 
@@ -28,6 +29,12 @@ class EcomLoginPage {
     async clickLogin() {
         await this.loginButton.click();
     }
+    async verifyUserIsOnHomepage(loggedInURL) {
+       expect(this.page).toHaveURL(loggedInURL);
+    }
+
+    async verifyUserIsNotOnHomepage(loginURL) {
+       expect(this.page).toHaveURL(loginURL);
+    }   
 }
 
-export { EcomLoginPage };
