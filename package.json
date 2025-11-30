@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx bddgen; npx playwright test --headed"
+    "test": "npx bddgen; npx playwright test --headed",
+    "qa-test": "cross-env NODE_ENV=qa npx playwright test --headed",
+    "prod-test": "cross-env NODE_ENV=prod npx bddgen && npx playwright test --headed",
+    "dev-test": "cross-env NODE_ENV=dev npx playwright test --headed"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +16,8 @@
     "@cucumber/cucumber": "^12.2.0",
     "@playwright/test": "^1.56.1",
     "@types/node": "^24.10.1",
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.2.3",
     "playwright-bdd": "^8.4.1"
   }
 }

@@ -1,6 +1,9 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
 import { defineBddConfig } from 'playwright-bdd';
+import dotenv  from 'dotenv';
+
+
 
 const testDir = defineBddConfig({
   importTestFrom: 'tests/fixtures/fixture.js',
@@ -11,6 +14,9 @@ const testDir = defineBddConfig({
     importTestFrom : true,
   }
 });
+
+dotenv.config({ path: `env/.env.${process.env.NODE_ENV}` });
+
 
 /**
  * Read environment variables from file.
