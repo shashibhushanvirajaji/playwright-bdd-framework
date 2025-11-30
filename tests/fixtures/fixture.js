@@ -1,13 +1,15 @@
 import { test as base } from 'playwright-bdd';
-import { EcomLoginPage } from '../pages/ecomLoginObj';
-import { EcomAccountInfoPage } from '../pages/ecomAccountInfoObj';
+import * as Pages from './pages';
+
+
+const {EcomLoginPage, EcomAccountInfoPage} = Pages;
+
+const createTestFunction = (PageClass) => async ({ page }, use) => {
+    await use(new PageClass(page));
+};
 
 export const test = base.extend({
-    ecomLoginPage: async ({ page }, use) => {
-        await use(new EcomLoginPage(page));
-    },
-    ecomEditAccountPage: async ({ page }, use) => {
-        await use(new EcomAccountInfoPage(page));
-    },
+    ecomLoginPage: createTestFunction(EcomLoginPage),
+    ecomEditAccountPage: createTestFunction(EcomAccountInfoPage),
 });
 
