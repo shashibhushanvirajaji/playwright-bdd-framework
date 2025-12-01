@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "bddgen": "npx bddgen",
+    "clean":"rm -rf .features-gen", 
     "test": "npx bddgen; npx playwright test --headed",
     "qa-test": "cross-env NODE_ENV=qa npx playwright test --headed",
     "prod-test": "cross-env NODE_ENV=prod npx bddgen && npx playwright test --headed",
