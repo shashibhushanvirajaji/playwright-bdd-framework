@@ -1,17 +1,17 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
 import { defineBddConfig } from 'playwright-bdd';
-import dotenv  from 'dotenv';
+import dotenv from 'dotenv';
 
 
 
 const testDir = defineBddConfig({
   importTestFrom: 'tests/fixtures/fixture.js',
-  paths:['tests/features/**.feature'],
+  paths: ['tests/features/**.feature'],
   //require: ['tests/steps/ecommercestepdefinitions.js'],
-  steps :['tests/steps/*.js'],
-  disableWarnings : {
-    importTestFrom : true,
+  steps: ['tests/steps/*.js'],
+  disableWarnings: {
+    importTestFrom: true,
   }
 });
 
@@ -53,9 +53,17 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+
+    // Setup project
+    // { name: 'setup',testDir:'./', testMatch: /.*\.setup\.js/ },
+
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: 'playwright/.auth/user.json'
+      },
+      // dependencies: ['setup'],
     },
 
     // {

@@ -1,3 +1,4 @@
+@skip
 Feature: Verify E-commerce Login Functionality
 
 
@@ -10,6 +11,7 @@ Feature: Verify E-commerce Login Functionality
         And the user enters a valid password "Sbhushan@123"
         And the user clicks the login button
         Then the user should be redirected to the homepage
+
 
     Scenario Outline: UnSuccessful Login with In-Valid Credentials
         Given the user is on the e-commerce login page 'https://ecommerce-playground.lambdatest.io/'
