@@ -5,15 +5,20 @@ import dotenv from 'dotenv';
 
 
 
+// const testDir = defineBddConfig({
+//   importTestFrom: 'tests/fixtures/fixture.js',
+//   paths: ['tests/features/**.feature'],
+//   //require: ['tests/steps/ecommercestepdefinitions.js'],
+//   steps: ['tests/steps/*.js'],
+//   disableWarnings: {
+//     importTestFrom: true,
+//   }
+// });
+
 const testDir = defineBddConfig({
-  importTestFrom: 'tests/fixtures/fixture.js',
-  paths: ['tests/features/**.feature'],
-  //require: ['tests/steps/ecommercestepdefinitions.js'],
-  steps: ['tests/steps/*.js'],
-  disableWarnings: {
-    importTestFrom: true,
-  }
-});
+  features: 'tests/features',
+  steps: ['tests/steps/*.js','tests/fixtures/fixture.js']
+})
 
 dotenv.config({ path: `env/.env.${process.env.NODE_ENV}` });
 
@@ -61,7 +66,7 @@ export default defineConfig({
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        storageState: 'playwright/.auth/user.json'
+       // storageState: 'playwright/.auth/user.json'
       },
       // dependencies: ['setup'],
     },

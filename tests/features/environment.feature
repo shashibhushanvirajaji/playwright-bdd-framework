@@ -1,10 +1,10 @@
-@skip
+
 Feature: Verify E-commerce Login Functionality with different environments
 
 
     Feature Description :
     This feature tests the login functionality of an e-commerce website using valid credentials.
-    @skip
+   
     Scenario: Successful Login with Valid Credentials
         Given the user navigates to the e-commerce login page
         When the user clicks on My Account link

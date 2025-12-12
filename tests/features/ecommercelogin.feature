@@ -1,4 +1,4 @@
-@skip
+
 Feature: Verify E-commerce Login Functionality
 
 
